@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Search Postal Information" icon-name="standard:location">
+        <lightning-input label="Enter Pincode" placeholder="Enter here..." value={Pincode} onchange={handleInputChange}></lightning-input>
+        <lightning-button variant="success" label="Search" onclick={handleSearchClick}></lightning-button>
+        <template if:true={postalData}>
+        <lightning-datatable
+            key-field="Pincode"
+            data={postalData}
+            hide-checkbox-column="true"
+            columns={columns}>
+        </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            <p class="slds-text-color_error">Error: Please enter valid pincode</p>
+        </template>
+    </lightning-card>
+</template>
